@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - Savon Artisanal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .admin-header {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .admin-nav {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .admin-nav button {
+            background: var(--secondary-color);
+            color: var(--text-dark);
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .admin-nav button.active,
+        .admin-nav button:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .admin-section {
+            display: none;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+        
+        .admin-section.active {
+            display: block;
+        }
+        
+        .admin-section h2 {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .data-table th,
+        .data-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .data-table th {
+            background: var(--background-light);
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .data-table tr:hover {
+            background: var(--background-light);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .btn-small {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .btn-edit {
+            background: var(--accent-color);
+            color: var(--white);
+        }
+        
+        .btn-delete {
+            background: #dc3545;
+            color: var(--white);
+        }
+        
+        .btn-small:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: var(--background-light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .login-form {
+            max-width: 400px;
+            margin: 5rem auto;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .login-form h2 {
+            text-align: center;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+        
+        .error-message {
+            background: #dc3545;
+            color: var(--white);
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: var(--white);
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: var(--text-dark);
+        }
+        
+        @media (max-width: 768px) {
+            .admin-container {
+                padding: 1rem;
+            }
+            
+            .data-table {
+                font-size: 0.9rem;
+            }
+            
+            .data-table th,
+            .data-table td {
+                padding: 0.5rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="login-section" class="login-form">
+        <h2><i class="fas fa-lock"></i> Administration</h2>
+        <div id="login-error" class="error-message" style="display: none;"></div>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="admin-password">Mot de passe administrateur</label>
+                <input type="password" id="admin-password" name="password" required>
+            </div>
+            <button type="submit" class="submit-button">
+                <i class="fas fa-sign-in-alt"></i>
+                Se connecter
+            </button>
+        </form>
+    </div>
+
+    <div id="admin-panel" style="display: none;">
+        <div class="admin-container">
+            <div class="admin-header">
+                <h1><i class="fas fa-cog"></i> Panneau d'Administration</h1>
+                <p>Gestion du site Savon Artisanal</p>
+                <button onclick="logout()" style="background: rgba(255,255,255,0.2); color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; margin-top: 1rem;">
+                    <i class="fas fa-sign-out-alt"></i> Déconnexion
+                </button>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="orders-count">0</div>
+                    <div class="stat-label">Commandes</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="surveys-count">0</div>
+                    <div class="stat-label">Sondages</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="contacts-count">0</div>
+                    <div class="stat-label">Messages</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="testimonials-count">0</div>
+                    <div class="stat-label">Témoignages</div>
+                </div>
+            </div>
+
+            <div class="admin-nav">
+                <button onclick="showSection('orders')" class="active">Commandes</button>
+                <button onclick="showSection('surveys')">Sondages</button>
+                <button onclick="showSection('contacts')">Messages</button>
+                <button onclick="showSection('testimonials')">Témoignages</button>
+                <button onclick="showSection('product')">Produit</button>
+            </div>
+
+            <div id="orders-section" class="admin-section active">
+                <h2><i class="fas fa-shopping-cart"></i> Commandes</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nom</th>
+                            <th>Email</th>
+                            <th>Adresse</th>
+                            <th>Quantité</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orders-table-body">
+                        <!-- Les données seront chargées ici -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="surveys-section" class="admin-section">
+                <h2><i class="fas fa-poll"></i> Réponses aux Sondages</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Habitudes d'achat</th>
+                            <th>Problèmes de peau</th>
+                            <th>Prix acceptable</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="surveys-table-body">
+                        <!-- Les données seront chargées ici -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="contacts-section" class="admin-section">
+                <h2><i class="fas fa-envelope"></i> Messages de Contact</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nom</th>
+                            <th>Email</th>
+                            <th>Message</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contacts-table-body">
+                        <!-- Les données seront chargées ici -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="testimonials-section" class="admin-section">
+                <h2><i class="fas fa-star"></i> Gestion des Témoignages</h2>
+                <button onclick="showAddTestimonialModal()" class="submit-button" style="margin-bottom: 1rem;">
+                    <i class="fas fa-plus"></i> Ajouter un témoignage
+                </button>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nom</th>
+                            <th>Contenu</th>
+                            <th>Note</th>
+                            <th>Actif</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="testimonials-table-body">
+                        <!-- Les données seront chargées ici -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="product-section" class="admin-section">
+                <h2><i class="fas fa-soap"></i> Gestion du Produit</h2>
+                <form id="product-form">
+                    <div class="form-group">
+                        <label for="product-name-input">Nom du produit</label>
+                        <input type="text" id="product-name-input" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-description-input">Description</label>
+                        <textarea id="product-description-input" name="description" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-price-input">Prix (€)</label>
+                        <input type="number" id="product-price-input" name="price" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-ingredients-input">Ingrédients</label>
+                        <textarea id="product-ingredients-input" name="ingredients" rows="2" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-benefits-input">Bénéfices</label>
+                        <textarea id="product-benefits-input" name="benefits" rows="2" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">
+                        <i class="fas fa-save"></i> Sauvegarder les modifications
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal pour ajouter/modifier un témoignage -->
+    <div id="testimonial-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeTestimonialModal()">&times;</span>
+            <h3 id="testimonial-modal-title">Ajouter un témoignage</h3>
+            <form id="testimonial-form">
+                <input type="hidden" id="testimonial-id" name="id">
+                <div class="form-group">
+                    <label for="testimonial-name">Nom</label>
+                    <input type="text" id="testimonial-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="testimonial-content">Contenu</label>
+                    <textarea id="testimonial-content" name="content" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="testimonial-rating">Note (1-5)</label>
+                    <select id="testimonial-rating" name="rating" required>
+                        <option value="5">5 étoiles</option>
+                        <option value="4">4 étoiles</option>
+                        <option value="3">3 étoiles</option>
+                        <option value="2">2 étoiles</option>
+                        <option value="1">1 étoile</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="testimonial-active" name="is_active" checked>
+                        Témoignage actif
+                    </label>
+                </div>
+                <button type="submit" class="submit-button">
+                    <i class="fas fa-save"></i> Sauvegarder
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal pour voir les détails du sondage -->
+    <div id="survey-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSurveyModal()">&times;</span>
+            <h3>Détails du sondage</h3>
+            <div id="survey-details"></div>
+        </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <script src="script.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
+

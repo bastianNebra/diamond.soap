@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savon Artisanal - Cosmétique Naturelle</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-leaf"></i>
+                <span>Savon Artisanal</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#accueil" class="nav-link">Accueil</a></li>
+                <li><a href="#produit" class="nav-link">Produit</a></li>
+                <li><a href="#apropos" class="nav-link">À propos</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#sondage" class="nav-link">Sondage</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Accueil -->
+    <section id="accueil" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Un savon pensé pour votre peau</h1>
+                <p class="hero-subtitle">Hydratant, exfoliant, anti-taches & anti-acné</p>
+                <p class="hero-description">
+                    Découvrez notre savon artisanal spécialement formulé pour les peaux noires et métissées. 
+                    Enrichi en niacinamide et acides aminés pour une peau éclatante et en bonne santé.
+                </p>
+                <a href="#produit" class="cta-button">Commander maintenant</a>
+            </div>
+            <div class="hero-image">
+                <div class="product-showcase">
+                    <div class="product-placeholder">
+                        <i class="fas fa-soap"></i>
+                        <span>Image produit</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Bénéfices -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Pourquoi choisir notre savon ?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>Hydratant</h3>
+                    <p>Nourrit en profondeur et maintient l'hydratation naturelle de votre peau</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-sparkles"></i>
+                    </div>
+                    <h3>Exfoliant</h3>
+                    <p>Élimine les cellules mortes pour révéler une peau douce et lumineuse</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Anti-taches</h3>
+                    <p>Aide à réduire les taches pigmentaires et unifie le teint</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Anti-acné</h3>
+                    <p>Combat les imperfections et prévient l'apparition de nouveaux boutons</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Ingrédients -->
+    <section class="ingredients">
+        <div class="container">
+            <h2 class="section-title">Ingrédients clés</h2>
+            <div class="ingredients-grid">
+                <div class="ingredient-card">
+                    <div class="ingredient-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3>Niacinamide</h3>
+                    <p>Vitamine B3 qui régule la production de sébum, réduit les pores et améliore l'éclat de la peau</p>
+                </div>
+                <div class="ingredient-card">
+                    <div class="ingredient-icon">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <h3>Acides aminés</h3>
+                    <p>Éléments constitutifs des protéines qui renforcent la barrière cutanée et favorisent la régénération</p>
+                </div>
+                <div class="ingredient-card">
+                    <div class="ingredient-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Beurre de karité</h3>
+                    <p>Hydratant naturel riche en vitamines A et E, apaise et nourrit la peau en profondeur</p>
+                </div>
+                <div class="ingredient-card">
+                    <div class="ingredient-icon">
+                        <i class="fas fa-oil-can"></i>
+                    </div>
+                    <h3>Huile d'argan</h3>
+                    <p>Antioxydant puissant qui protège contre le vieillissement et maintient l'élasticité de la peau</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Témoignages -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Ce que disent nos clients</h2>
+            <div class="testimonials-grid" id="testimonials-container">
+                <!-- Les témoignages seront chargés dynamiquement -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Ce savon a transformé ma peau ! Fini les taches et l'acné, ma peau est maintenant douce et éclatante."</p>
+                        <div class="testimonial-author">
+                            <strong>Aminata D.</strong>
+                            <span>Paris, France</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Enfin un produit qui comprend les besoins de ma peau ! L'hydratation dure toute la journée."</p>
+                        <div class="testimonial-author">
+                            <strong>Koffi M.</strong>
+                            <span>Lyon, France</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Je recommande vivement ! La texture est agréable et les résultats sont visibles dès la première semaine."</p>
+                        <div class="testimonial-author">
+                            <strong>Fatou S.</strong>
+                            <span>Marseille, France</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Produit/Commande -->
+    <section id="produit" class="product">
+        <div class="container">
+            <h2 class="section-title">Notre Savon Artisanal</h2>
+            <div class="product-container">
+                <div class="product-image">
+                    <div class="product-placeholder">
+                        <i class="fas fa-soap"></i>
+                        <span>Image produit détaillée</span>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <h3 id="product-name">Savon Artisanal Hydratant</h3>
+                    <div class="product-price">
+                        <span id="product-price">5,99 €</span>
+                    </div>
+                    <div class="product-description">
+                        <p id="product-description">Un savon pensé pour votre peau : hydratant, exfoliant, anti-taches & anti-acné.</p>
+                    </div>
+                    <div class="product-benefits">
+                        <h4>Bénéfices :</h4>
+                        <p id="product-benefits">Hydratant, Exfoliant, Anti-taches, Anti-acné</p>
+                    </div>
+                    <div class="product-ingredients">
+                        <h4>Ingrédients :</h4>
+                        <p id="product-ingredients">Niacinamide, Acides aminés, Beurre de karité, Huile d'argan</p>
+                    </div>
+                    
+                    <!-- Formulaire de commande -->
+                    <form id="order-form" class="order-form">
+                        <div class="form-group">
+                            <label for="customer-name">Nom complet *</label>
+                            <input type="text" id="customer-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-email">Email *</label>
+                            <input type="email" id="customer-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-address">Adresse de livraison *</label>
+                            <textarea id="customer-address" name="address" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Quantité *</label>
+                            <select id="quantity" name="quantity" required>
+                                <option value="1">1 savon</option>
+                                <option value="2">2 savons</option>
+                                <option value="3">3 savons</option>
+                                <option value="5">5 savons</option>
+                                <option value="10">10 savons</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="submit-button">
+                            <i class="fas fa-shopping-cart"></i>
+                            Commander maintenant
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section id="apropos" class="about">
+        <div class="container">
+            <h2 class="section-title">À propos de nous</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Notre Histoire</h3>
+                    <p>
+                        Née de la passion d'un entrepreneur africain installé en Europe, notre marque répond à un besoin réel : 
+                        proposer des produits cosmétiques spécialement adaptés aux peaux noires et métissées.
+                    </p>
+                    <p>
+                        Après avoir constaté le manque de produits efficaces et accessibles sur le marché européen, 
+                        nous avons décidé de créer notre propre gamme de savons artisanaux, alliant tradition africaine 
+                        et innovation moderne.
+                    </p>
+                    
+                    <h3>Notre Mission</h3>
+                    <p>
+                        Nous croyons que chaque peau mérite des soins adaptés à ses besoins spécifiques. 
+                        Notre mission est de démocratiser l'accès à des cosmétiques de qualité, 
+                        formulés avec des ingrédients naturels et efficaces.
+                    </p>
+                    <p>
+                        Nous nous engageons à soutenir la communauté africaine de la diaspora en proposant 
+                        des produits qui célèbrent et prennent soin de la beauté naturelle de la peau noire.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <div class="about-placeholder">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Photo du fondateur</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contactez-nous</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Restons en contact</h3>
+                    <p>Vous avez des questions ? N'hésitez pas à nous contacter !</p>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>contact@savon-artisanal.fr</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+33 1 23 45 67 89</span>
+                    </div>
+                    
+                    <div class="social-links">
+                        <h4>Suivez-nous</h4>
+                        <div class="social-icons">
+                            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="contact-name">Nom *</label>
+                        <input type="text" id="contact-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Email *</label>
+                        <input type="email" id="contact-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message *</label>
+                        <textarea id="contact-message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">
+                        <i class="fas fa-paper-plane"></i>
+                        Envoyer le message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Sondage -->
+    <section id="sondage" class="survey">
+        <div class="container">
+            <h2 class="section-title">Aidez-nous à mieux vous servir</h2>
+            <p class="survey-intro">
+                Votre avis compte ! Participez à notre sondage pour nous aider à développer 
+                des produits qui répondent parfaitement à vos besoins.
+            </p>
+            
+            <form id="survey-form" class="survey-form">
+                <div class="form-group">
+                    <label>Où achetez-vous habituellement vos produits cosmétiques ? *</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="buying_habits" value="supermarche" required> Supermarché</label>
+                        <label><input type="radio" name="buying_habits" value="afro-shop" required> Afro-shop</label>
+                        <label><input type="radio" name="buying_habits" value="en-ligne" required> En ligne</label>
+                        <label><input type="radio" name="buying_habits" value="pharmacie" required> Pharmacie</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Quels sont vos principaux problèmes de peau ? (Plusieurs réponses possibles) *</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="skin_problems" value="secheresse"> Sécheresse</label>
+                        <label><input type="checkbox" name="skin_problems" value="acne"> Acné</label>
+                        <label><input type="checkbox" name="skin_problems" value="taches"> Taches</label>
+                        <label><input type="checkbox" name="skin_problems" value="teint-terne"> Teint terne</label>
+                        <label><input type="checkbox" name="skin_problems" value="aucun"> Aucun problème particulier</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Qu'est-ce qui vous intéresse le plus dans un savon ? (Plusieurs réponses possibles) *</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="soap_interest" value="hydratant"> Propriétés hydratantes</label>
+                        <label><input type="checkbox" name="soap_interest" value="exfoliant"> Effet exfoliant</label>
+                        <label><input type="checkbox" name="soap_interest" value="eclaircissant"> Éclaircissement léger</label>
+                        <label><input type="checkbox" name="soap_interest" value="anti-taches"> Action anti-taches</label>
+                        <label><input type="checkbox" name="soap_interest" value="anti-acne"> Traitement anti-acné</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Quelle importance accordez-vous aux ingrédients comme la niacinamide et les acides aminés ? *</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="ingredients_importance" value="tres-important" required> Très important</label>
+                        <label><input type="radio" name="ingredients_importance" value="important" required> Important</label>
+                        <label><input type="radio" name="ingredients_importance" value="peu-important" required> Peu important</label>
+                        <label><input type="radio" name="ingredients_importance" value="pas-important" required> Pas important</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Quel prix seriez-vous prêt(e) à payer pour un savon de qualité ? *</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="acceptable_price" value="moins-3" required> Moins de 3 €</label>
+                        <label><input type="radio" name="acceptable_price" value="3-5" required> 3 à 5 €</label>
+                        <label><input type="radio" name="acceptable_price" value="5-7" required> 5 à 7 €</label>
+                        <label><input type="radio" name="acceptable_price" value="plus-7" required> Plus de 7 €</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Quelles valeurs sont importantes pour vous ? (Plusieurs réponses possibles) *</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="important_values" value="prix"> Prix abordable</label>
+                        <label><input type="checkbox" name="important_values" value="resultats-rapides"> Résultats rapides</label>
+                        <label><input type="checkbox" name="important_values" value="ingredients-naturels"> Ingrédients naturels</label>
+                        <label><input type="checkbox" name="important_values" value="packaging"> Beau packaging</label>
+                        <label><input type="checkbox" name="important_values" value="origine-africaine"> Origine africaine</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Comment préférez-vous découvrir de nouveaux produits ? *</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="preferred_communication" value="amis" required> Recommandations d'amis</label>
+                        <label><input type="radio" name="preferred_communication" value="reseaux-sociaux" required> Réseaux sociaux</label>
+                        <label><input type="radio" name="preferred_communication" value="influenceurs" required> Influenceurs</label>
+                        <label><input type="radio" name="preferred_communication" value="test-echantillon" required> Test d'échantillon gratuit</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="ideal-soap">Si vous pouviez créer le savon idéal pour votre peau, que demanderiez-vous ?</label>
+                    <textarea id="ideal-soap" name="ideal_soap_description" rows="4" placeholder="Décrivez votre savon idéal..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">
+                    <i class="fas fa-check"></i>
+                    Envoyer le sondage
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-leaf"></i>
+                        <span>Savon Artisanal</span>
+                    </div>
+                    <p>Cosmétique naturelle adaptée à votre peau</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#produit">Produit</a></li>
+                        <li><a href="#apropos">À propos</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>contact@savon-artisanal.fr</p>
+                    <p>+33 1 23 45 67 89</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Suivez-nous</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Savon Artisanal. Tous droits réservés.</p>
+                <a href="/admin" class="admin-link">Administration</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Messages de notification -->
+    <div id="notification" class="notification"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

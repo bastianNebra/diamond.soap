@@ -4,7 +4,7 @@ from src.models.user import db
 
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False, default="Savon Artisanal Hydratant")
+    name = db.Column(db.String(100), nullable=False, default="Diamand Soap Hydratant")
     description = db.Column(db.Text, nullable=False, default="Un savon pensé pour votre peau : hydratant, exfoliant, anti-taches & anti-acné.")
     price = db.Column(db.Float, nullable=False, default=5.99)
     ingredients = db.Column(db.Text, nullable=False, default="Niacinamide, Acides aminés, Beurre de karité, Huile d'argan")

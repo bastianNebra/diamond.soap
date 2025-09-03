@@ -1,5 +1,5 @@
 // Configuration
-const ADMIN_PASSWORD = 'admin123'; // Mot de passe simple pour la démo
+const ADMIN_PASSWORD = 'bastian'; // Mot de passe simple pour la démo
 // const API_BASE = '/api';
 
 // État de l'authentification

@@ -1,5 +1,5 @@
 // Configuration de l'API
-const API_BASE = '/api';
+const API_BASE = 'https://diamond-soap.onrender.com/api';
 
 // Éléments DOM
 const hamburger = document.querySelector('.hamburger');
